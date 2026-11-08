@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TG Channel Backup</string>
+    <string name="keys_help">Telegram requires your own free API keys. Sign in at my.telegram.org → API development tools → create an app (any name), then copy the App api_id and App api_hash here. They stay on this phone.</string>
+</resources>

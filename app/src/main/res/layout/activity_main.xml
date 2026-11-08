@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall" />
+
+        <!-- 1. API keys -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Card"
+            android:id="@+id/cardKeys">
+            <LinearLayout style="@style/CardBody">
+                <TextView style="@style/CardTitle" android:text="1 · Telegram API keys" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/keys_help"
+                    android:textAppearance="?attr/textAppearanceBodySmall" />
+                <Button
+                    android:id="@+id/btnOpenKeysSite"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Open my.telegram.org" />
+                <com.google.android.material.textfield.TextInputLayout style="@style/Field" android:hint="API ID">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/apiId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout style="@style/Field" android:hint="API hash">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/apiHash"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text|textNoSuggestions" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 2. Login -->
+        <com.google.android.material.card.MaterialCardView style="@style/Card">
+            <LinearLayout style="@style/CardBody">
+                <TextView style="@style/CardTitle" android:text="2 · Log in to Telegram" />
+                <TextView
+                    android:id="@+id/loginState"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Not logged in"
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
+                <LinearLayout
+                    android:id="@+id/loginForm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <com.google.android.material.textfield.TextInputLayout style="@style/Field" android:hint="Phone number (e.g. +447700900123)">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <Button
+                        android:id="@+id/btnSendCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Send login code" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/codeBox"
+                        style="@style/Field"
+                        android:hint="Code from Telegram"
+                        android:visibility="gone">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/code"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/passwordBox"
+                        style="@style/Field"
+                        android:hint="Two-step verification password"
+                        android:visibility="gone"
+                        app:endIconMode="password_toggle"
+                        xmlns:app="http://schemas.android.com/apk/res-auto">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <Button
+                        android:id="@+id/btnLogin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Log in"
+                        android:visibility="gone" />
+                </LinearLayout>
+                <Button
+                    android:id="@+id/btnLogout"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Log out"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 3. Channels + sync -->
+        <com.google.android.material.card.MaterialCardView style="@style/Card">
+            <LinearLayout style="@style/CardBody">
+                <TextView style="@style/CardTitle" android:text="3 · Channels to back up" />
+                <com.google.android.material.textfield.TextInputLayout style="@style/Field"
+                    android:hint="One per line: @channel, t.me/link or ID">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/channels"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:inputType="textMultiLine|textNoSuggestions"
+                        android:minLines="3" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/live"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Keep syncing — grab new posts as they arrive" />
+                <Button
+                    android:id="@+id/btnSync"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Start backup" />
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Idle"
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
+                <TextView
+                    android:id="@+id/folder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textAppearance="?attr/textAppearanceBodySmall"
+                    android:textIsSelectable="true" />
+                <Button
+                    android:id="@+id/btnBattery"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Let it run in the background (battery setting)" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</ScrollView>

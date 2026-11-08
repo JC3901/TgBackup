@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <path android:fillColor="#2AABEE" android:pathData="M54,4a50,50 0,1 1,0 100a50,50 0,1 1,0 -100z" />
+    <!-- paper plane -->
+    <path android:fillColor="#FFFFFF" android:pathData="M26,52 L78,32 L70,76 L55,64 L47,72 L46,60 L70,40 L42,57 Z" />
+    <!-- down arrow badge -->
+    <path android:fillColor="#0B5E87" android:pathData="M74,64a14,14 0,1 1,0 28a14,14 0,1 1,0 -28z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M71,70h6v8h5l-8,8 -8,-8h5z" />
+</vector>
